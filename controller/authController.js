@@ -28,7 +28,7 @@ export const registerController = async (req, res) => {
 
     const createUser = new UserModel(req.body.data);
     const savedUser = await createUser.save();
-    console.log("savedUser", savedUser);
+    // console.log("savedUser", savedUser);
 
     res.status(200).json({ message: "Registration successful" });
   } catch (error) {
@@ -65,7 +65,7 @@ export const loginController = async (req, res) => {
 
     const token = await jwt.sign(tokenData, "12345", { expiresIn: "1d" });
 
-    console.log("token", token);
+    // console.log("token", token);
 
     res.cookie("access_token", token);
     res.status(200).json({ token, userId: user?._id });
